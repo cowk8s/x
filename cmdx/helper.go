@@ -5,7 +5,7 @@ package cmdx
 
 import (
 	"fmt"
-	"io"
+	"os"
 )
 
 // Fatalf prints to os.Stderr and exists with code 1.
