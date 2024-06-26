@@ -22,6 +22,10 @@ func Generate(cmd *cobra.Command, args []string) error {
 	return generate(cmd, args[0])
 }
 
+func trimExt(s string) string {
+	return strings.ReplaceAll(strings.TrimSuffix(s, filepath.Ext(s)), "_", "-")
+}
+
 func generate(cmd *cobra.Command, dir string) error {
 	cmd.DisableAutoGenTag = true
 	for _, c := range cmd.Commands() {
@@ -39,7 +43,7 @@ func generate(cmd *cobra.Command, dir string) error {
 	}
 
 	filename := filepath.Join(dir, basename) + ".md"
-	f, err := os.Create(filename)
+	f, err := os.Create(filename) //#nosec:G304
 	if err != nil {
 		return err
 	}
@@ -66,5 +70,10 @@ To improve this file please make your change against the appropriate "./cmd/*.go
 	}
 
 	var b bytes.Buffer
-	if err := 
+	if err := GenMarkdownCustom(cmd, &b, trimExt); err != nil {
+		return err
+	}
+
+	_, err = f.WriteString(b.String())
+	return err
 }
