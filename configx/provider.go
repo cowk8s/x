@@ -8,6 +8,11 @@ import (
 	"sync"
 )
 
+type tuple struct {
+	Key   string
+	Value interface{}
+}
+
 type Provider struct {
 	l sync.RWMutex
 
