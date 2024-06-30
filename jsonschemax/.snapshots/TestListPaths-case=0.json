@@ -1,0 +1,23 @@
+[
+  {
+    "Title": "Access Rules",
+    "Description": "Configure access rules. All sub-keys support configuration reloading without restarting.",
+    "Examples": null,
+    "Name": "access_rules",
+    "Default": null,
+    "Type": {},
+    "TypeHint": 5,
+    "Format": "",
+    "Pattern": null,
+    "Enum": null,
+    "Constant": null,
+    "ReadOnly": false,
+    "MinLength": -1,
+    "MaxLength": -1,
+    "Required": false,
+    "Minimum": null,
+    "Maximum": null,
+    "MultipleOf": null,
+    "CustomProperties": null
+  }
+]
